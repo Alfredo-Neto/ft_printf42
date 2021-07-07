@@ -6,7 +6,7 @@
 /*   By: ade-agui <ade-agui@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 20:35:19 by ade-agui          #+#    #+#             */
-/*   Updated: 2021/07/06 21:43:07 by ade-agui         ###   ########.fr       */
+/*   Updated: 2021/07/06 21:56:35 by ade-agui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 # include <stdio.h>
 
 # define CONVERSIONS	"cspdiuxX%"
-#define FLAGS_AND_TYPES "-0.*0123456789cspdiuxX%"
+# define FLAGS_AND_TYPES "-0.*0123456789cspdiuxX%"
+# define NUMBERS "123456789"
 
 
 int ft_printf(const char *format, ...);

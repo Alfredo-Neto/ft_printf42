@@ -6,7 +6,7 @@
 /*   By: ade-agui <ade-agui@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 20:33:05 by ade-agui          #+#    #+#             */
-/*   Updated: 2021/07/06 21:53:44 by ade-agui         ###   ########.fr       */
+/*   Updated: 2021/07/06 21:56:43 by ade-agui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 static int handle_flags_and_types(const char *format, int *i, int len)
 {
-    int width[9] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
     // se format for '-' -> alinhar à esquerda
     if (format[*i] == '-')
         ft_strtrim(format[*i], ' '); //hello
-    else if (format[*i] == '0' && width) // -0.*cspdiuxX%
+    else if (format[*i] == '0' && NUMBERS) // -0.*cspdiuxX%
     {
         
     }
