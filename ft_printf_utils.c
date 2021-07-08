@@ -6,7 +6,7 @@
 /*   By: ade-agui <ade-agui@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 00:56:42 by ade-agui          #+#    #+#             */
-/*   Updated: 2021/07/08 01:28:12 by ade-agui         ###   ########.fr       */
+/*   Updated: 2021/07/08 17:54:35 by ade-agui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,11 @@ int		ft_strchr_01(char *s, char c)
 	}
 	return (0);
 }
-void		print_spec_c(char c)
+
+void		print_spec_c(char c, int len, va_list args)
 {
-	ft_putchar_len(c);
+	char *print_c = &c;
+	print_c = va_arg(args, char *);
+	ft_putchar_len(*print_c, &len);
+	// ft_putchar_len(c, len);
 }
