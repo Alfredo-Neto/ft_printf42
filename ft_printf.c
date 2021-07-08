@@ -6,7 +6,7 @@
 /*   By: ade-agui <ade-agui@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 20:33:05 by ade-agui          #+#    #+#             */
-/*   Updated: 2021/07/06 21:56:43 by ade-agui         ###   ########.fr       */
+/*   Updated: 2021/07/07 23:40:20 by ade-agui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ static int handle_flags_and_types(const char *format, int *i, int len)
     }
 }
 
+static int trata_tipo(Tipo opcao, char character)
+{
+    if (opcao.type == 's')
+        character = handle_types(opcao.type);
+}
+
 static int flags_and_types_identifier(const char *format, int *i, int len)
 {
     // conta todos os tipos e flags e retorna a impressão correta e o len
@@ -31,7 +37,7 @@ static int flags_and_types_identifier(const char *format, int *i, int len)
        while (ft_strchr(FLAGS_AND_TYPES, format[*i]))
         {
             // chama funcao para tratar as flags
-            len = handle_flags_and_types(format[*i], len);
+            len = handle_flags_and_types(format[*i], &i, len);
         }
     }
     return (len);
@@ -65,11 +71,11 @@ int ft_printf(const char *format, ...)
     return(len);
 }
 
-int main(void)
-{
-    ft_printf("Hello World!");
-}
+// 1 coisa: tratar e printar o char
+// ao encontrar a flag, tratar e printar 
+// começar com o char, depois string
 
 // if (format[*i] != '%') // 
 
 // gera_flags(format, &i, tamanho, args); //
+

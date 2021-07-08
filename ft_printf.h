@@ -6,7 +6,7 @@
 /*   By: ade-agui <ade-agui@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 20:35:19 by ade-agui          #+#    #+#             */
-/*   Updated: 2021/07/06 21:56:35 by ade-agui         ###   ########.fr       */
+/*   Updated: 2021/07/07 23:30:27 by ade-agui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@
 # define FLAGS_AND_TYPES "-0.*0123456789cspdiuxX%"
 # define NUMBERS "123456789"
 
+typedef struct {
+    char type;
+    int width;
+    int precision;
+} Tipo;
 
 int ft_printf(const char *format, ...);
 
