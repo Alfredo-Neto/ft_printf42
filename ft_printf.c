@@ -6,7 +6,7 @@
 /*   By: ade-agui <ade-agui@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 21:43:08 by ade-agui          #+#    #+#             */
-/*   Updated: 2021/07/08 23:49:27 by ade-agui         ###   ########.fr       */
+/*   Updated: 2021/07/09 20:44:39 by ade-agui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 //         character = handle_types(opcao.type);
 // }
 
-static void types_identifier(int *len, va_list args, t_flags fl)
+static void handle_types(int *len, va_list args, t_flags fl)
 {
     if (fl.type == 'c')
         print_c(va_arg(args, int), len);
@@ -56,7 +56,7 @@ static void get_specs(const char *format, int  *i, int *len, va_list args) {
     if (ft_strchr_01(CONVERSIONS, format[*i]))
     {
          fl.type = format[(*i)++];
-         types_identifier(len, args, fl);
+         handle_types(len, args, fl);
     }    
 }
 
@@ -78,7 +78,7 @@ int ft_printf(const char *format, ...)
             i++;
             get_specs(format, &i, &len, args);
             if (len == -1)
-				return (-1);  // %[flags][width][.precision][size]type -> "hello" "    hello"
+				return (-1); // %[flags][width][.precision][size]type -> "hello" "    hello"
         }
     }
     va_end(args);
