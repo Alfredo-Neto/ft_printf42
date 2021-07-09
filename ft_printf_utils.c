@@ -6,7 +6,7 @@
 /*   By: ade-agui <ade-agui@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 21:44:20 by ade-agui          #+#    #+#             */
-/*   Updated: 2021/07/08 23:08:24 by ade-agui         ###   ########.fr       */
+/*   Updated: 2021/07/08 23:38:38 by ade-agui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,12 @@ void		print_c(char c, int *len)
 void		print_s(char *c, int *len)
 {
 	ft_putstr_len(c, len);
+}
+
+void print_int(t_flags fl, va_list args)
+{
+	fl.integer = va_arg(args, int);
+	ft_putnbr(fl.integer);
 }
 
 //para imprimir integer:

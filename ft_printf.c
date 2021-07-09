@@ -6,7 +6,7 @@
 /*   By: ade-agui <ade-agui@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 21:43:08 by ade-agui          #+#    #+#             */
-/*   Updated: 2021/07/08 23:10:17 by ade-agui         ###   ########.fr       */
+/*   Updated: 2021/07/08 23:41:01 by ade-agui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ static void types_identifier(int *len, va_list args, t_flags fl)
                 print_c(va_arg(args, int), len);
             if (fl.type == 's')
 		        print_s(va_arg(args, char *), len);
+            if (fl.type == 'i' || fl.type == 'd' || fl.type == 'u')
+		        print_int(fl, args);
             // if (fl.type == 's')
             //    print_s  = va_arg(args, char *);
             // while(*print_s)
@@ -109,9 +111,15 @@ int ft_printf(const char *format, ...)
 int main (void)
 {
    
-//    //integer
-//    int number = 123456789;
-//    ft_printf("%i", number);
+   int number;
+   int tamanho;
+   
+   number = 15041996;
+   tamanho = ft_printf("%i", number);
+   ft_printf("\n");
+   ft_printf("tamanho é: %i", tamanho);
+   ft_printf("\n");
+
 
     // int tamanho;
    
@@ -119,11 +127,11 @@ int main (void)
     // printf("%d", tamanho);
     // printf("\n");
 
-    int tamanho;
+    // int tamanho;
    
-    tamanho = ft_printf("Hello %s - ", "Alexandre e Jorge");
-    printf("%d", tamanho);
-    printf("\n");
+    // tamanho = ft_printf("Hello %s - ", "Alexandre e Jorge");
+    // printf("%d", tamanho);
+    // printf("\n");
    
     return (0);
 }
