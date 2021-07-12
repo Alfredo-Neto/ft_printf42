@@ -6,7 +6,7 @@
 /*   By: ade-agui <ade-agui@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 21:43:08 by ade-agui          #+#    #+#             */
-/*   Updated: 2021/07/12 15:27:24 by ade-agui         ###   ########.fr       */
+/*   Updated: 2021/07/12 19:08:39 by ade-agui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,10 @@ static void handle_types(int *len, va_list args, t_flags fl)
         print_c(va_arg(args, int), len);
     if (fl.type == 's')
         print_s(va_arg(args, char *), len);
-    if (fl.type == 'i' || fl.type == 'd' || fl.type == 'u')
-        print_int(fl, args, len);
+    if (fl.type == 'i' || fl.type == 'd')
+        print_i_d(fl, args, len);
+    if (fl.type == 'u')
+        print_u(fl, args, len);
     // if (fl.type == 'p')
     //    print_c  = va_arg(args, char *);
     // write(1, &print_c, 1);
@@ -89,15 +91,18 @@ int main (void)
 {
    
    int number1;
-   int number2;
-   int tamanho;
+   unsigned int number2;
+//    int tamanho;
    
-   number1 = 15;
-   number2 = 16;
-   tamanho = ft_printf("%i%i", number1, number2);
-   ft_printf("\n");
-   ft_printf("tamanho é: %i", tamanho);
-   ft_printf("\n");
+   number1 = 10;
+   number2 = -10;
+   ft_printf("%d %u", number1, number2);
+   printf("\n");
+   printf("%d %u", number1, number2);
+   printf("\n");
+   printf("\n");
+//    ft_printf("tamanho é: %d", tamanho);
+//    ft_printf("\n");
 
 
     // int tamanho;

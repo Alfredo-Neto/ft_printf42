@@ -6,7 +6,7 @@
 /*   By: ade-agui <ade-agui@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 20:35:19 by ade-agui          #+#    #+#             */
-/*   Updated: 2021/07/12 15:30:47 by ade-agui         ###   ########.fr       */
+/*   Updated: 2021/07/12 19:17:57 by ade-agui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 typedef struct {
     char type;
-    char   *strNum;
+    char *strNum;
     int width;
     int precision;
 } t_flags;
@@ -41,9 +41,13 @@ void	ft_putstr(char *s);
 void	ft_putchar(char c);
 void	ft_putnbr(int n);
 char	*ft_itoa(int n);
+char    *ft_uitoa(unsigned int n);
+static int	potencia(int tamanho);
+static int	tamanho(unsigned int n);
+void    print_u(t_flags fl, va_list args, int *len);
 void	ft_putstr_len(char *s, int *len);
 void		print_s(char *c, int *len);
-void print_int(t_flags fl, va_list args, int *len);
+void print_i_d(t_flags fl, va_list args, int *len);
 
 
 #endif
