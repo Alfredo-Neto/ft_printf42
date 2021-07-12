@@ -6,7 +6,7 @@
 /*   By: ade-agui <ade-agui@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 21:43:08 by ade-agui          #+#    #+#             */
-/*   Updated: 2021/07/09 20:44:39 by ade-agui         ###   ########.fr       */
+/*   Updated: 2021/07/12 15:27:24 by ade-agui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void handle_types(int *len, va_list args, t_flags fl)
     if (fl.type == 's')
         print_s(va_arg(args, char *), len);
     if (fl.type == 'i' || fl.type == 'd' || fl.type == 'u')
-        print_int(fl, args);
+        print_int(fl, args, len);
     // if (fl.type == 'p')
     //    print_c  = va_arg(args, char *);
     // write(1, &print_c, 1);
