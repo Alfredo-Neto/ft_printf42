@@ -6,7 +6,7 @@
 /*   By: ade-agui <ade-agui@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 21:44:20 by ade-agui          #+#    #+#             */
-/*   Updated: 2021/07/12 19:17:50 by ade-agui         ###   ########.fr       */
+/*   Updated: 2021/07/12 21:53:37 by ade-agui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,22 @@ int	ft_len(int num)
 	return (len);
 }
 
+int	ft_ulen(unsigned int num)
+{
+	size_t	len;
+
+	if (num <= 0)
+		len = 1;
+	else
+		len = 0;
+	while (num != 0)
+	{
+		num = num / 10;
+		len++;
+	}
+	return (len);
+}
+
 int	ft_to_positive(int num)
 {
 	if (num < 0)
@@ -157,50 +173,23 @@ char	*ft_itoa(int n)
 	return (result);
 }
 
-static int	tamanho(unsigned int n)
+char	*ft_uitoa(unsigned int n)
 {
-	int tamanho;
+	int		sign;
+	int		len;
+	char	*result;
 
-	tamanho = 0;
-	if (n < 0)
-		n = n * -1;
-	while (n > 0)
+	len = ft_ulen(n);
+	result = (char *)malloc(sizeof(char) * len + 1);
+	if (result == NULL)
+		return (0);
+	result[len] = '\0';
+	len--;
+	while (len >= 0)
 	{
-		n = n / 10;
-		tamanho++;
+		result[len] = '0' + (n % 10);
+		n = (n / 10);
+		len--;
 	}
-	return (tamanho);
+	return (result);
 }
-
-static int	potencia(int tamanho)
-{
-	int	pot;
-
-	pot = 1;
-	while (tamanho > 0)
-	{
-		pot = pot * 10;
-		tamanho--;
-	}
-	return (pot);
-}
-
-char		*ft_uitoa(unsigned int n)
-{
-	char	*ret;
-	int		pot;
-	int		i;
-
-	if (!(ret = (char*)malloc((tamanho(n) + 2) * sizeof(char))))
-		return (NULL);
-	i = 0;
-	pot = potencia(tamanho(n) - 1);
-	while (pot > 0)
-	{
-		ret[i++] = (n / pot % 10 + 48);
-		pot = pot / 10;
-	}
-	ret[i] = '\0';
-	return (ret);
-}
-
