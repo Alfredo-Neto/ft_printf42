@@ -6,7 +6,7 @@
 /*   By: ade-agui <ade-agui@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 21:44:20 by ade-agui          #+#    #+#             */
-/*   Updated: 2021/07/12 21:53:37 by ade-agui         ###   ########.fr       */
+/*   Updated: 2021/07/12 22:33:17 by ade-agui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,7 +175,6 @@ char	*ft_itoa(int n)
 
 char	*ft_uitoa(unsigned int n)
 {
-	int		sign;
 	int		len;
 	char	*result;
 
