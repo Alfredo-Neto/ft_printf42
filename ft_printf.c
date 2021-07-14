@@ -6,7 +6,7 @@
 /*   By: ade-agui <ade-agui@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 21:43:08 by ade-agui          #+#    #+#             */
-/*   Updated: 2021/07/14 01:12:04 by ade-agui         ###   ########.fr       */
+/*   Updated: 2021/07/14 18:20:42 by ade-agui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ static void handle_types(int *len, va_list args, t_flags fl)
         print_i_d(fl, args, len);
     if (fl.type == 'u')
         print_u(fl, args, len);
+    if (fl.type == 'x')
+        print_x(fl, args, len);
+    if (fl.type == 'X')
+        print_X(fl, args, len);
     if (fl.type == '%')
         print_pct(len);
 }
@@ -93,11 +97,23 @@ int main (void)
 
     // return (0);
 //    ft_printf("tamanho é: %d", tamanho);
-//    ft_printf("\n");
-    ft_printf("%%");
-    ft_printf("\n");
+// //    ft_printf("\n");
+//     ft_printf("%%");
+//     ft_printf("\n");
     // int tamanho;
    
+   char c = 'u';
+    char *s = "Vila 26 bombando";
+    int in = 42;
+    int dec = 42;
+    unsigned int ui = -300;
+    int hexa = 30000000;
+
+    printf("\n   printf -> char: %c, string: %s, int: %i, decimal: %d, unsigned: %u\n", c, s, in, dec, ui);
+    ft_printf("ft_printf -> char: %c, string: %s, int: %i, decimal: %d, unsigned: %u\n\n", c, s, in, dec, ui);
+
+    printf("\n   printf -> pointer: %p, hexa 'x': %x, hexa 'X': %X,  %%\n", &s, hexa, hexa);
+    ft_printf("ft_printf -> pointer: %p, hexa 'x': %x, hexa 'X': %X,  %%\n\n", &s, hexa, hexa);
     // tamanho = ft_printf("Hello %c - ", 'A');
     // printf("%d", tamanho);
     // printf("\n");
