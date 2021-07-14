@@ -6,7 +6,7 @@
 /*   By: ade-agui <ade-agui@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 20:35:19 by ade-agui          #+#    #+#             */
-/*   Updated: 2021/07/14 18:50:04 by ade-agui         ###   ########.fr       */
+/*   Updated: 2021/07/14 18:56:23 by ade-agui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include "stdlib.h"
 # include "string.h"
 
-
 # define CONVERSIONS	"cspdiuxX%"
 # define ALL_FLAGS "-0.*0123456789cspdiuxX%"
 # define NUMBERS		"0123456789"
@@ -29,7 +28,6 @@ typedef struct t_flags {
     int width;
     int precision;
 } t_flags;
-
 
 /**
  * main function that prints each formated string
