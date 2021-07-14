@@ -6,7 +6,7 @@
 /*   By: ade-agui <ade-agui@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 21:43:08 by ade-agui          #+#    #+#             */
-/*   Updated: 2021/07/13 23:44:34 by ade-agui         ###   ########.fr       */
+/*   Updated: 2021/07/14 01:12:04 by ade-agui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static void handle_types(int *len, va_list args, t_flags fl)
         print_i_d(fl, args, len);
     if (fl.type == 'u')
         print_u(fl, args, len);
+    if (fl.type == '%')
+        print_pct(len);
 }
 
 static void get_specs(const char *format, int  *i, int *len, va_list args) {
@@ -75,25 +77,25 @@ int main (void)
 //    printf("\n");
 //    printf("\n");
 
-    char *s = "Vila 26 bombando";
-    char *t = "Será que o pointer tá bacana?";
-    //int in = 42;
-    //int dec = 42;
-    //unsigned int ui = -300;
+    // char *s = "Vila 26 bombando";
+    // char *t = "Será que o pointer tá bacana?";
+    // //int in = 42;
+    // //int dec = 42;
+    // //unsigned int ui = -300;
 
-    //ft_printf("\nchar: %c, string: %s, int: %i, decimal: %d, unsigned: %u\n\n", c, s, in, dec, ui);
-    //printf("\nchar: %c, string: %s, int: %i, decimal: %d, unsigned: %u\n\n", c, s, in, dec, ui);
-    printf("   printf: %p\n", &s);
-    ft_printf("ft_printf: %p\n", &s);
+    // //ft_printf("\nchar: %c, string: %s, int: %i, decimal: %d, unsigned: %u\n\n", c, s, in, dec, ui);
+    // //printf("\nchar: %c, string: %s, int: %i, decimal: %d, unsigned: %u\n\n", c, s, in, dec, ui);
+    // printf("   printf: %p\n", &s);
+    // ft_printf("ft_printf: %p\n", &s);
 
-    printf("   printf: %p\n", &t);
-    ft_printf("ft_printf: %p\n", &t);
+    // printf("   printf: %p\n", &t);
+    // ft_printf("ft_printf: %p\n", &t);
 
-    return (0);
+    // return (0);
 //    ft_printf("tamanho é: %d", tamanho);
 //    ft_printf("\n");
-
-
+    ft_printf("%%");
+    ft_printf("\n");
     // int tamanho;
    
     // tamanho = ft_printf("Hello %c - ", 'A');

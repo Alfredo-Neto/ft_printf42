@@ -6,7 +6,7 @@
 /*   By: ade-agui <ade-agui@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 21:44:20 by ade-agui          #+#    #+#             */
-/*   Updated: 2021/07/14 00:35:51 by ade-agui         ###   ########.fr       */
+/*   Updated: 2021/07/14 01:10:14 by ade-agui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,11 @@ void print_p(t_flags fl, va_list args, int *len)
 	fl.strNum = ft_int_to_hex(va_arg(args, unsigned long int));
 	ft_putstr_len_p(fl.strNum, len);
 	free(fl.strNum);
+}
+
+void print_pct(int *len)
+{
+	ft_putstr_len("%", len);
 }
 
 //para imprimir integer:
