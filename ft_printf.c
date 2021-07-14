@@ -6,28 +6,11 @@
 /*   By: ade-agui <ade-agui@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 21:43:08 by ade-agui          #+#    #+#             */
-/*   Updated: 2021/07/12 19:08:39 by ade-agui         ###   ########.fr       */
+/*   Updated: 2021/07/13 23:44:34 by ade-agui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-// static int handle_types(const char *format, int *i, int len)
-// {
-//     // se format for '-' -> alinhar à esquerda
-//     if (format[*i] == '-')
-//         ft_strtrim(format[*i], ' '); //hello
-//     else if (format[*i] == '0' && NUMBERS) // -0.*cspdiuxX%
-//     {
-        
-//     }
-// }
-
-// static int trata_tipo(Tipo opcao, char character)
-// {
-//     if (opcao.type == 's')
-//         character = handle_types(opcao.type);
-// }
 
 static void handle_types(int *len, va_list args, t_flags fl)
 {
@@ -35,31 +18,21 @@ static void handle_types(int *len, va_list args, t_flags fl)
         print_c(va_arg(args, int), len);
     if (fl.type == 's')
         print_s(va_arg(args, char *), len);
+    if (fl.type == 'p')
+        print_p(fl, args, len);
     if (fl.type == 'i' || fl.type == 'd')
         print_i_d(fl, args, len);
     if (fl.type == 'u')
         print_u(fl, args, len);
-    // if (fl.type == 'p')
-    //    print_c  = va_arg(args, char *);
-    // write(1, &print_c, 1);
-    // if (fl.type == 'x')
-    //    print_c  = va_arg(args, char *);
-    // write(1, &print_c, 1);
-    // if (fl.type == 'X')
-    //    print_c  = va_arg(args, char *);
-    // write(1, &print_c, 1);
-    // if (fl.type == '%')
-    //    print_c  = va_arg(args, char *);
-    // write(1, &print_c, 1);
 }
 
 static void get_specs(const char *format, int  *i, int *len, va_list args) {
     t_flags fl;
     if (ft_strchr_01(CONVERSIONS, format[*i]))
     {
-         fl.type = format[(*i)++];
-         handle_types(len, args, fl);
-    }    
+        fl.type = format[(*i)++];
+        handle_types(len, args, fl);
+    }
 }
 
 int ft_printf(const char *format, ...)
@@ -74,13 +47,13 @@ int ft_printf(const char *format, ...)
     while (format[i] != '\0')
     {
         if (format[i] != '%')
-            ft_putchar_len(format[i++], &len); // tamanho = hello %-s, name // 7
+            ft_putchar_len(format[i++], &len);
         else
         {
             i++;
             get_specs(format, &i, &len, args);
             if (len == -1)
-				return (-1); // %[flags][width][.precision][size]type -> "hello" "    hello"
+				return (-1);
         }
     }
     va_end(args);
@@ -90,17 +63,33 @@ int ft_printf(const char *format, ...)
 int main (void)
 {
    
-   int number1;
-   unsigned int number2;
+//    int number1;
+//    unsigned int number2;
 //    int tamanho;
    
-   number1 = 10;
-   number2 = -10;
-   ft_printf("%d %u", number1, number2);
-   printf("\n");
-   printf("%d %u", number1, number2);
-   printf("\n");
-   printf("\n");
+//    number1 = 10;
+//    number2 = -10;
+//    ft_printf("%d %u", number1, number2);
+//    printf("\n");
+//    printf("%d %u", number1, number2);
+//    printf("\n");
+//    printf("\n");
+
+    char *s = "Vila 26 bombando";
+    char *t = "Será que o pointer tá bacana?";
+    //int in = 42;
+    //int dec = 42;
+    //unsigned int ui = -300;
+
+    //ft_printf("\nchar: %c, string: %s, int: %i, decimal: %d, unsigned: %u\n\n", c, s, in, dec, ui);
+    //printf("\nchar: %c, string: %s, int: %i, decimal: %d, unsigned: %u\n\n", c, s, in, dec, ui);
+    printf("   printf: %p\n", &s);
+    ft_printf("ft_printf: %p\n", &s);
+
+    printf("   printf: %p\n", &t);
+    ft_printf("ft_printf: %p\n", &t);
+
+    return (0);
 //    ft_printf("tamanho é: %d", tamanho);
 //    ft_printf("\n");
 
@@ -119,13 +108,3 @@ int main (void)
    
     return (0);
 }
-
-
-
-// 1 coisa: tratar e printar o char
-// ao encontrar a flag, tratar e printar 
-// começar com o char, depois string
-
-// if (format[*i] != '%') // 
-
-// gera_flags(format, &i, tamanho, args); //

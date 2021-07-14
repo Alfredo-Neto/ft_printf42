@@ -6,7 +6,7 @@
 /*   By: ade-agui <ade-agui@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 20:35:19 by ade-agui          #+#    #+#             */
-/*   Updated: 2021/07/12 22:32:59 by ade-agui         ###   ########.fr       */
+/*   Updated: 2021/07/14 00:17:41 by ade-agui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,12 @@ void	ft_putnbr(int n);
 char	*ft_itoa(int n);
 char    *ft_uitoa(unsigned int n);
 void    print_u(t_flags fl, va_list args, int *len);
+void print_p(t_flags fl, va_list args, int *len);
 void	ft_putstr_len(char *s, int *len);
+void	ft_putstr_len_p(char *s, int *len);
 void		print_s(char *c, int *len);
 void print_i_d(t_flags fl, va_list args, int *len);
-
+int        len_hex(unsigned long int x);
+char	*ft_int_to_hex(unsigned long int n);
 
 #endif
