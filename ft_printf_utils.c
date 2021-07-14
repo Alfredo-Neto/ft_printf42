@@ -6,7 +6,7 @@
 /*   By: ade-agui <ade-agui@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 21:44:20 by ade-agui          #+#    #+#             */
-/*   Updated: 2021/07/14 00:31:31 by ade-agui         ###   ########.fr       */
+/*   Updated: 2021/07/14 00:35:08 by ade-agui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -219,8 +219,7 @@ void	ft_putstr_len_p(char *s, int *len)
 {
 	int i;
 
-	write(1, "0", 1);
-	write(1, "x", 1);
+	write(1, "0x", 1);
 	if (s != NULL)
 	{
 		i = 0;
