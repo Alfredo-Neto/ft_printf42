@@ -6,7 +6,7 @@
 /*   By: ade-agui <ade-agui@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 20:35:19 by ade-agui          #+#    #+#             */
-/*   Updated: 2021/07/14 00:53:16 by ade-agui         ###   ########.fr       */
+/*   Updated: 2021/07/14 00:54:00 by ade-agui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void		print_c(char c, int *len);
 size_t	ft_strlen(const char *s);
 void	ft_putstr(char *s);
 void	ft_putchar(char c);
-void	ft_putnbr(int n);
 char	*ft_itoa(int n);
 char    *ft_uitoa(unsigned int n);
 void    print_u(t_flags fl, va_list args, int *len);
