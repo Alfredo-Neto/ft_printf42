@@ -6,7 +6,7 @@
 /*   By: ade-agui <ade-agui@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 20:35:19 by ade-agui          #+#    #+#             */
-/*   Updated: 2021/07/14 00:54:00 by ade-agui         ###   ########.fr       */
+/*   Updated: 2021/07/14 00:55:00 by ade-agui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define ALL_FLAGS "-0.*0123456789cspdiuxX%"
 # define NUMBERS		"0123456789"
 
-typedef struct s_flags {
+typedef struct t_flags {
     char type;
     char *strNum;
     int width;
