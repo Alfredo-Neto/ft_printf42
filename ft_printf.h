@@ -6,7 +6,7 @@
 /*   By: ade-agui <ade-agui@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 20:35:19 by ade-agui          #+#    #+#             */
-/*   Updated: 2021/07/14 18:56:23 by ade-agui         ###   ########.fr       */
+/*   Updated: 2021/07/14 18:56:52 by ade-agui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void print_p(t_flags fl, va_list args, int *len);
 void	print_x(t_flags fl, va_list args, int *len);
 void	print_X(t_flags fl, va_list args, int *len);
 void print_pct(int *len);
-
 
 /**
  * libft functions with some adaptations

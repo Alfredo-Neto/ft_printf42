@@ -6,7 +6,7 @@
 /*   By: ade-agui <ade-agui@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 21:44:20 by ade-agui          #+#    #+#             */
-/*   Updated: 2021/07/14 18:52:44 by ade-agui         ###   ########.fr       */
+/*   Updated: 2021/07/14 19:22:49 by ade-agui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,27 +42,3 @@ void print_p(t_flags fl, va_list args, int *len)
 	ft_putstr_len_p(fl.strNum, len);
 	free(fl.strNum);
 }
-
-// char	*ft_int_to_hex_X(unsigned long int n)
-// { 
-// 	int len;
-// 	char *result;
-
-// 	len = len_hex(n);
-// 	result = (char *)malloc(len + 1);
-// 	if (result == NULL)
-// 		return (0);
-// 	result[len--] = '\0';
-// 	while (len >= 0)
-// 	{
-// 		int temp;
-
-// 		temp = n % 16;
-//         if (temp < 10) 
-//             result[len--] = temp + 48;
-//         else 
-//             result[len--] = temp + 55;
-//         n = n / 16;
-//     }
-// 	return (result);	
-// }
