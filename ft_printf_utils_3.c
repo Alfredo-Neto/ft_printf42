@@ -1,56 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utils3.c                                 :+:      :+:    :+:   */
+/*   ft_printf_utils_3.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ade-agui <ade-agui@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/14 18:45:49 by ade-agui          #+#    #+#             */
-/*   Updated: 2021/07/14 18:46:25 by ade-agui         ###   ########.fr       */
+/*   Created: 2021/07/23 20:03:26 by azamario          #+#    #+#             */
+/*   Updated: 2021/07/29 18:21:07 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar_len(char c, int *len)
+t_flags	ft_clean_flags(void)
 {
-	write(1, &c, 1);
-	(*len)++;
-}
+	t_flags	fl;
 
-int		ft_strchr_01(char *s, char c)
-{
-	int i;
-
-	i = 0;
-	while (s[i] != '\0')
-	{
-		if (s[i++] == c)
-			return (1);
-	}
-	return (0);
-}
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (*(s++))
-		i++;
-	return (i);
-}
-
-void	ft_putstr(char *s)
-{
-	if (!s)
-		return ;
-	write(1, s, ft_strlen(s));
+	fl.minus = 0;
+	fl.zero = 0;
+	fl.width = 0;
+	fl.dot = 0;
+	fl.precision = 0;
+	return (fl);
 }
 
 void	ft_putstr_len(char *s, int *len)
 {
-	int i;
+	int	i;
 
 	if (s != NULL)
 	{

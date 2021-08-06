@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utils4.c                                 :+:      :+:    :+:   */
+/*   ft_printf_utils_2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ade-agui <ade-agui@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/14 18:48:05 by ade-agui          #+#    #+#             */
-/*   Updated: 2021/07/14 18:52:05 by ade-agui         ###   ########.fr       */
+/*   Created: 2021/07/23 20:04:51 by azamario          #+#    #+#             */
+/*   Updated: 2021/07/31 23:20:47 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_len(int num)
+void	ft_putnbr(int n)
 {
-	size_t	len;
-
-	if (num <= 0)
-		len = 1;
-	else
-		len = 0;
-	while (num != 0)
+	if (n == -2147483648)
+		ft_putstr("-2147483648");
+	if (n < 0 && n != -2147483648)
 	{
-		num = num / 10;
-		len++;
+		ft_putchar('-');
+		n = n * -1;
 	}
-	return (len);
+	if (n <= 9 && n >= 0)
+		ft_putchar(n + 48);
+	else if (n > 0)
+	{
+		ft_putnbr(n / 10);
+		ft_putchar(n % 10 + 48);
+	}
 }
 
-int	ft_ulen(unsigned int num)
+int	ft_len(int num)
 {
 	size_t	len;
 
@@ -76,25 +78,5 @@ char	*ft_itoa(int n)
 	}
 	if (sign == -1)
 		result[0] = '-';
-	return (result);
-}
-
-char	*ft_uitoa(unsigned int n)
-{
-	int		len;
-	char	*result;
-
-	len = ft_ulen(n);
-	result = (char *)malloc(sizeof(char) * len + 1);
-	if (result == NULL)
-		return (0);
-	result[len] = '\0';
-	len--;
-	while (len >= 0)
-	{
-		result[len] = '0' + (n % 10);
-		n = (n / 10);
-		len--;
-	}
 	return (result);
 }

@@ -1,54 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*   print_c.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/08 19:24:27 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/05 15:49:19 by azamario         ###   ########.fr       */
+/*   Created: 2021/07/23 15:04:46 by azamario          #+#    #+#             */
+/*   Updated: 2021/08/05 15:32:20 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar_len(char c, int *len)
+void	print_c(char c, int *len, t_flags fl)
 {
-	write(1, &c, 1);
-	(*len)++;
-}
-
-int	ft_strchr(char *s, char c)
-{
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
+	if (fl.minus == 0 && fl. width > 0)
 	{
-		if (s[i++] == c)
-			return (1);
+		while (fl.width > 1)
+		{
+			write(1, " ", 1);
+			fl.width--, (*len)++;
+		}
+		ft_putchar_len(c, len);
 	}
-	return (0);
-}
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (*(s++))
-		i++;
-	return (i);
-}
-
-void	ft_putstr(char *s)
-{
-	if (!s)
-		return ;
-	write(1, s, ft_strlen(s));
-}
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
+	else if (fl.minus == 1)
+	{
+		ft_putchar_len(c, len);
+		while (fl.width > 1)
+		{
+			write(1, " ", 1);
+			fl.width--, (*len)++;
+		}
+	}
+	else
+		ft_putchar_len(c, len);
 }
