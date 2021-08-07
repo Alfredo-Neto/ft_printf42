@@ -1,36 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utils_2.c                                :+:      :+:    :+:   */
+/*   ft_printf_utils_6.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/23 20:04:51 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/06 17:42:57 by azamario         ###   ########.fr       */
+/*   Created: 2021/08/06 17:00:34 by azamario          #+#    #+#             */
+/*   Updated: 2021/08/07 10:42:30 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putnbr(int n)
+void	print_neg_number_i_d(t_flags fl, int *len)
 {
-	if (n == -2147483648)
-		ft_putstr("-2147483648");
-	if (n < 0 && n != -2147483648)
-	{
-		ft_putchar('-');
-		n = n * -1;
-	}
-	if (n <= 9 && n >= 0)
-		ft_putchar(n + 48);
-	else if (n > 0)
-	{
-		ft_putnbr(n / 10);
-		ft_putchar(n % 10 + 48);
-	}
+	ft_putchar_len('-', len);
+	ft_putstr_len(fl.strNum, len);
 }
 
-int	ft_len(int num)
+int	ft_ulen(unsigned int num)
 {
 	size_t	len;
 
@@ -46,25 +34,12 @@ int	ft_len(int num)
 	return (len);
 }
 
-int	ft_to_positive(int num)
+char	*ft_uitoa(unsigned int n)
 {
-	if (num < 0)
-		return (-num);
-	else
-		return (num);
-}
-
-char	*ft_itoa(int n)
-{
-	int		sign;
 	int		len;
 	char	*result;
 
-	if (n < 0)
-		sign = -1;
-	else
-		sign = 1;
-	len = ft_len(n);
+	len = ft_ulen(n);
 	result = (char *)malloc(sizeof(char) * len + 1);
 	if (result == NULL)
 		return (0);
@@ -72,23 +47,39 @@ char	*ft_itoa(int n)
 	len--;
 	while (len >= 0)
 	{
-		result[len] = '0' + ft_to_positive(n % 10);
-		n = ft_to_positive(n / 10);
+		result[len] = '0' + (n % 10);
+		n = n / 10;
 		len--;
 	}
-	if (sign == -1)
-		result[0] = '-';
 	return (result);
 }
 
-void	ft_putstr_len(char *s, int *len)
-{
-	int	i;
-
-	if (s != NULL)
+void	print_zero_string_u(t_flags fl, int *len, int size)
+{	
+	if (fl.minus == 0)
 	{
-		i = 0;
-		while (s[i])
-			ft_putchar_len(s[i++], len);
+		while (fl.width - size > 0)
+		{
+			write(1, "0", 1);
+			fl.width--;
+			(*len)++;
+		}
+		ft_putstr_len(fl.strNum, len);
 	}
+	else if (fl.minus == 1)
+	{
+		ft_putstr_len(fl.strNum, len);
+		print_space(fl, size, len);
+	}
+}
+
+void	print_zero_precision_u(t_flags fl, int size, int *len)
+{
+	while (fl.precision - size > 0)
+	{
+		write(1, "0", 1);
+		fl.precision--;
+		(*len)++;
+	}
+	ft_putstr_len(fl.strNum, len);
 }

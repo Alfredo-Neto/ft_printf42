@@ -6,7 +6,7 @@
 /*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 15:04:46 by azamario          #+#    #+#             */
-/*   Updated: 2021/08/05 15:32:20 by azamario         ###   ########.fr       */
+/*   Updated: 2021/08/07 10:47:45 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	print_c(char c, int *len, t_flags fl)
 		while (fl.width > 1)
 		{
 			write(1, " ", 1);
-			fl.width--, (*len)++;
+			fl.width--;
+			(*len)++;
 		}
 		ft_putchar_len(c, len);
 	}
@@ -29,7 +30,8 @@ void	print_c(char c, int *len, t_flags fl)
 		while (fl.width > 1)
 		{
 			write(1, " ", 1);
-			fl.width--, (*len)++;
+			fl.width--;
+			(*len)++;
 		}
 	}
 	else

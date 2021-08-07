@@ -3,49 +3,64 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils_5.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ade-agui <ade-agui@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: azamario <azamario@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/05 22:58:17 by ade-agui          #+#    #+#             */
-/*   Updated: 2021/08/05 22:58:28 by ade-agui         ###   ########.fr       */
+/*   Created: 2021/08/06 16:58:32 by azamario          #+#    #+#             */
+/*   Updated: 2021/08/07 10:43:51 by azamario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_len_hex(unsigned long int x)
+void	print_precision_neg_zero_number_i_d(t_flags fl, int size, int *len)
 {
-	int	len;
-
-	len = 0;
-	while (x)
+	ft_putchar_len('-', len);
+	while (fl.precision - (size - 1) > 0)
 	{
-		x = x / 16;
-		len++;
+		write(1, "0", 1);
+		fl.precision--;
+		(*len)++;
 	}
-	return (len);
+	ft_putstr_len(fl.strNum, len);
 }
-                         
-char        *ft_ullitoa_base(unsigned long long int n, char *base)
-{
-    char                 	   *a;
-    unsigned long long int 	   nbr;
-    size_t                 	   size;
-    int                        b_len;
 
-    b_len = ft_strlen(base);
-    nbr = n;
-    size = 1;
-    while (n /= b_len)
-        size++;
-    if (!(a = (char *)malloc(size + 1)))
-        return (0);
-    a[size--] = '\0';
-    while (nbr > 0)
-    {
-        a[size--] = base[nbr % b_len];
-        nbr /= b_len;
-    }
-    if (size == 0 && a[1] == '\0')
-        a[0] = '0';
-    return (a);
+void	print_width_neg_zero_number_i_d(t_flags fl, int size, int *len)
+{
+	ft_putchar_len('-', len);
+	while (fl.width - (size - 1) > 0)
+	{
+		write(1, "0", 1);
+		fl.width--;
+		(*len)++;
+	}
+	ft_putstr_len(fl.strNum, len);
+}
+
+void	print_neg_precision_zero_number_i_d(t_flags fl, int size, int *len)
+{
+	ft_putchar_len('-', len);
+	while (fl.precision > size - 1)
+	{
+		write(1, "0", 1);
+		fl.precision--;
+		(*len)++;
+	}
+	ft_putstr_len(fl.strNum, len);
+}
+
+void	print_neg_prec_zero_number_space_i_d(t_flags fl, int size, int *len)
+{
+	print_neg_precision_zero_number_i_d(fl, size, len);
+	while (fl.width - (size - 1) > 0)
+	{
+		write(1, " ", 1);
+		fl.width--;
+		(*len)++;
+	}
+}
+
+void	print_neg_number_space_i_d(t_flags fl, int size, int *len)
+{
+	print_neg_number_i_d(fl, len);
+	print_space(fl, size, len);
 }
