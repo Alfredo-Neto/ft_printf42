@@ -1,4 +1,3 @@
-
 NAME = libftprintf.a
 
 SRCS = ft_printf_utils.c ft_printf_utils_2.c ft_printf_utils_3.c ft_printf_utils_4.c \
