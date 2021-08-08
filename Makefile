@@ -22,7 +22,7 @@ $(NAME): $(SRCS)
 bonus: $(OBJECTS_BONUS)
 
 $(OBJECTS_BONUS):
-	@gcc -Wall -Wextra -Werror -c $(SRC) $(SRC_BONUS)
+	@gcc -Wall -Wextra -Werror -c $(SRC_BONUS)
 	@ar rc $(NAME) $(OBJECTS) $(OBJECTS_BONUS)
 	@ranlib $(NAME)
 
