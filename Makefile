@@ -23,7 +23,7 @@ bonus: $(OBJECTS_BONUS)
 
 $(OBJECTS_BONUS):
 	@gcc -Wall -Wextra -Werror -c $(SRC_BONUS)
-	@ar rc $(NAME) $(OBJECTS) $(OBJECTS_BONUS)
+	@ar rc $(NAME) $(OBJECTS_BONUS)
 	@ranlib $(NAME)
 
 clean:
